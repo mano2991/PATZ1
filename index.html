@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATZ1 snRNA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 a {
+            color: white;
+            text-decoration: none;
+        }
+        header h1 a:hover {
+            text-decoration: underline;
+        }
+        header .menu {
+            display: flex;
+            gap: 10px;
+        }
+        header .menu button {
+            background-color: white;
+            color: #0044cc;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        header .menu button.active {
+            background-color: #003399;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            margin: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 20px;
+            border-top: 1px solid #ccc;
+        }
+        footer a {
+            color: #0044cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><a href="https://venkateshlab.science/" target="_blank">Venkatesh Lab</a></h1>
+    <div class="menu">
+        <button class="tab-button" onclick="openTab('tab1')">PATZ1_snRNA</button>
+    </div>
+</header>
+
+<div id="tab1" class="tab-content">
+    <iframe src="https://1tc6tm-manojkumar-k.shinyapps.io/PATZ1_GFP/"></iframe>
+</div>
+
+<footer>
+    Developed by Manojkumar | 
+    <a href="https://github.com/mano2991" target="_blank">GitHub</a>
+</footer>
+
+<script>
+function openTab(tabName) {
+    var i, tabcontent, tablinks;
+    
+    // Get all tab contents and hide them
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all tab buttons and remove the "active" class
+    tablinks = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // Display the selected tab and set its button to active
+    document.getElementById(tabName).style.display = "block";
+    document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add("active");
+}
+
+// Open the first tab by default
+document.querySelector('.tab-button').click();
+</script>
+
+</body>
+</html>
